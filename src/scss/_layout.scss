@@ -1,0 +1,28 @@
+.container {
+    max-width: 120rem;
+    margin: 12rem auto;
+    background-color: var(--white);
+    box-shadow: var(--shadow-dark);
+    border-radius: var(--border-radius);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav {
+   height: 8rem; 
+   display: flex;
+   align-items: center;
+   margin-left: 2rem;
+   margin-right: 2rem;
+}
+
+.timer-container {
+    padding-top: 1.6rem;
+    padding-left: 3.2rem;
+}
+
+.main {
+}

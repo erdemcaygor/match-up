@@ -1,0 +1,208 @@
+// button styles start
+
+.btn {
+    min-width: 2rem;
+    border: none;
+    outline: none;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    transition: all .1s ease-in-out;
+    color: var(--white);
+    &-default {
+        background-color: var(--light-grey);
+    }
+    &-primary {
+        background-color: var(--primary-color-dark);
+    }
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: translateY(-.5px);
+}
+
+// card component
+
+.card {
+    flex: 0 0 10rem;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-light);
+    height: 10rem;
+    display: flex;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    margin: 2rem;
+    transition: all .5s ease-in-out;
+    position: relative;
+
+    &__front-container {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 2s linear;
+        height: 0;
+        width: 0;
+        flex: 1 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            height: 100%;
+        }
+    }
+
+    &__back-container {
+        opacity: 0;
+        visibility: hidden;
+        transition: visibility .5s, opacity 1s linear;
+        transition-delay: .2s;
+        position: absolute;
+        flex: 1 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &.active {
+        transform: rotateY(180deg);    
+    }
+
+    &__check {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: -5px;
+        top: -5px;
+        visibility: hidden;
+    }
+
+    &__check.matched {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        left: -5px;
+        top: -5px;
+        visibility: visible;
+        animation: slide-down 1s, rotate .5s;
+        animation-fill-mode: forwards;
+    }
+}
+
+
+// flex container styles
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 100rem;
+    justify-content: center;
+}
+
+//icon container
+
+.icon-container {
+
+    &__icon {
+        width: 4rem;
+        height: 4rem;
+    }
+}
+
+// modal syles
+
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+
+    &.animationComplete {
+        backdrop-filter: grayscale(0.8) opacity(0.9);
+    }
+
+    &__dialog {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 0 1 40rem;
+        height: 300px;
+        border-radius: 20px;
+        background-color: var(--white);
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 1s, opacity 1s;
+    }
+
+    &__dialog.show {
+        visibility: visible;
+        opacity: 1;
+        background-color: var(--white);
+    }
+
+    &__img {
+        width: 5rem;
+        height: 5rem;
+        margin-top: 1.6rem
+    }
+
+    &__description {
+        font-size: 2.4rem;
+        margin-top: 1.6rem;
+    }
+
+    &__button {
+        margin-top: 3.2rem;
+    }
+}
+
+//timer component style
+
+.timer {
+    display: flex;
+    align-items: center;
+    &__value {
+        font-size: 2.4rem;
+        padding-left: 5px;
+    }
+    &__image {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+// animations
+
+@keyframes slide-down {
+    0% {
+        transform: translateY(-5px);
+      }
+    100% {
+        transform: translateY(0px);
+      }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateY(90deg);
+      }
+    100% {
+        transform: rotateY(180deg);
+      }
+}
